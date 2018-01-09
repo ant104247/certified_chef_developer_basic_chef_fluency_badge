@@ -21,3 +21,8 @@ end
 file '/etc/motd' do
 	content 'Welcome to my server'
 end
+
+execute 'command-test' do
+	command 'echo blah >> /etc/motd'
+	only_if 'test -r /etc/motd'
+end
